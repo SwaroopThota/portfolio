@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import Header from '@/sections/header'
-import BackgroundWrapper from '@/components/BackgroundWrapper'
+import BackgroundWrapper from '@/components/custom/BackgroundWrapper'
 import Footer from '@/sections/footer'
 import HeroSection from '@/sections/hero'
 import AboutSection from '@/sections/about'

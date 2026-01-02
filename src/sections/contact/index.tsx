@@ -1,9 +1,9 @@
-import Link from '@/components/Link'
+import Link from '@/components/custom/Link'
 import { Button } from '@/components/ui/button'
 import {
 	TerminalUICommand,
 	TerminalUIWindow,
-} from '@/components/ui/terminal-ui'
+} from '@/components/custom/terminal-ui'
 
 const ContactSection = () => {
 	return (

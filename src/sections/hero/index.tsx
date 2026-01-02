@@ -1,14 +1,15 @@
-import Link from '@/components/Link'
+import Link from '@/components/custom/Link'
 import {
 	TerminalUICommand,
 	TerminalUIWindow,
-} from '@/components/ui/terminal-ui'
+} from '@/components/custom/terminal-ui'
+import { config } from '@/config/config'
 import { User } from 'lucide-react'
 
 const HeroSection = () => {
 	return (
 		<section
-			className='min-h-[80vh] flex items-center justify-center'
+			className='min-h-96 flex items-center justify-center'
 			id='hero'
 		>
 			<TerminalUIWindow className='max-w-[90dvw] w-6xl mt-0'>
@@ -18,17 +19,17 @@ const HeroSection = () => {
 						<div className='flex flex-col gap-2'>
 							<img
 								src='/images/banner.png'
-								alt='banner'
+								alt='her-section-banner'
 								className='block mx-auto'
 							/>
 							<div className='flex flex-col gap-1'>
 								<span>
-									<User className='inline size-4' /> Thota
-									Jyothi Swaroop
+									<User className='inline size-4' />{' '}
+									{config.fullName}
 								</span>
-								<span>⚡ Full-stack Web Developer</span>
-								<span>⚡ System Design Enthusiast</span>
-								<span>⚡ SDE-2</span>
+								{config.heroSectionPoints.map((point, idx) => (
+									<span key={idx}>⚡ {point}</span>
+								))}
 							</div>
 						</div>
 					}
@@ -37,10 +38,14 @@ const HeroSection = () => {
 					command='ls'
 					output={
 						<div className='flex flex-row gap-3 items-baseline'>
-							<Link href='#aboutMe'>aboutMe/</Link>
-							<Link href='#myProjects'>projects/</Link>
-							<Link href='#myExperience'>experience/</Link>
-							<Link href='#contactMe'>contactMe/</Link>
+							{config.sections.map((item, index) => (
+								<Link
+									key={index}
+									href={`#${item}`}
+								>
+									{item}/
+								</Link>
+							))}
 						</div>
 					}
 				/>

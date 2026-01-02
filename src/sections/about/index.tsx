@@ -1,17 +1,10 @@
 import { FileUser } from 'lucide-react'
-import Link from '@/components/Link'
+import Link from '@/components/custom/Link'
 import {
 	TerminalUICommand,
 	TerminalUIWindow,
-} from '@/components/ui/terminal-ui'
-
-const skills = {
-	Languages: ['Java', 'JavaScript/TypeScript', 'Python'],
-	'Front-end': ['React.js', 'Next.js'],
-	'Back-end': ['Node.js', 'ASP.Net Core'],
-	Databases: ['Postgres', 'SQL Server', 'MongoDB'],
-	DevOps: ['Docker', 'Github Actions', 'AWS', 'Jenkins'],
-}
+} from '@/components/custom/terminal-ui'
+import { config } from '@/config/config'
 
 const AboutSection = () => {
 	return (
@@ -25,31 +18,26 @@ const AboutSection = () => {
 			>
 				<TerminalUICommand
 					command='cat aboutMe.txt'
-					output={
-						<p>
-							Hi, I'm Swaroop. I am a passionate developer with
-							experience in building web applications. I really
-							enjoy building things from scratch, solving coding
-							questions and learning new technologies. I am eager
-							and enthusiastic about collaborating with
-							experienced developers to create significant and
-							impactful projects.
-						</p>
-					}
+					output={<p>{config.personalSummary}</p>}
 				/>
 				<TerminalUICommand
 					command='cat skills.txt'
 					output={
 						<div className='text-nowrap'>
-							{Object.entries(skills).map(([category, items]) => (
-								<p key={category}>
-									⚡{' '}
-									<span className='font-bold'>
-										{category}
+							{Object.entries(config.skills).map(
+								([category, items]) => (
+									<span
+										className='flex'
+										key={category}
+									>
+										⚡{' '}
+										<p className='font-bold min-w-22'>
+											{category}
+										</p>
+										: {items.join(', ')}
 									</span>
-									: {items.join(', ')}
-								</p>
-							))}
+								)
+							)}
 						</div>
 					}
 				/>
@@ -58,7 +46,7 @@ const AboutSection = () => {
 					output={
 						<Link
 							className='text-primary'
-							href='/resume.pdf'
+							href={config.resumeLink}
 							target='_blank'
 						>
 							[

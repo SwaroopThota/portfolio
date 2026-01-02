@@ -171,5 +171,10 @@
 @layer base {
 	* {
 		@apply border-border outline-ring/50 scroll-smooth;
+		--background-grid-lines-color: rgba(100, 116, 139, 0.4);
+	}
+
+	html {
+		@apply scroll-p-24;
 	}
 }

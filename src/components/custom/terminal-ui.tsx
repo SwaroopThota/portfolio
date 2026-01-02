@@ -48,7 +48,7 @@ const TerminalUIWindow: FC<TerminalUIWindowProps> = ({
 	return (
 		<Card
 			className={cn(
-				'bg-card/10 backdrop-blur-xl backdrop-opacity-50 w-full m-5',
+				'bg-card/10 backdrop-blur-xl backdrop-opacity-50 w-full m-5 border-2 shadow-lg',
 				className
 			)}
 		>

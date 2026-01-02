@@ -1,8 +1,8 @@
-import Link from '@/components/Link'
+import Link from '@/components/custom/Link'
 import {
 	TerminalUICommand,
 	TerminalUIWindow,
-} from '@/components/ui/terminal-ui'
+} from '@/components/custom/terminal-ui'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Github, ExternalLink } from 'lucide-react'
