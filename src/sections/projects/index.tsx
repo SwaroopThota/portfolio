@@ -5,35 +5,8 @@ import {
 } from '@/components/custom/terminal-ui'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Github, ExternalLink } from 'lucide-react'
-
-interface Project {
-	title: string
-	description: string
-	technologies: string[]
-	githubUrl: string
-	liveUrl?: string
-	image?: string
-}
-
-const projects: Project[] = [
-	{
-		title: 'Portfolio Website',
-		description:
-			'A modern portfolio website built with React, TypeScript, and Tailwind CSS. Features a terminal-like UI and dark mode support.',
-		technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-		githubUrl: 'https://github.com/user/portfolio-website',
-		liveUrl: 'https://yourportfolio.com',
-	},
-	{
-		title: 'Project Manager',
-		description:
-			'A full-stack project management application with real-time updates, task tracking, and team collaboration features.',
-		technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'tRPC'],
-		githubUrl: 'https://github.com/user/project-manager',
-		liveUrl: 'https://project-manager.demo.com',
-	},
-]
+import { Github, ExternalLink, Globe } from 'lucide-react'
+import { config } from '@/config/config'
 
 const ProjectsSection = () => {
 	return (
@@ -48,38 +21,35 @@ const ProjectsSection = () => {
 				<TerminalUICommand
 					command='ls projects/ --format=github'
 					output={
-						<div className='grid grid-cols-1 lg:grid-cols-2 gap-6 w-full'>
-							{projects.map((project, index) => (
+						<div className='grid grid-cols-1 lg:grid-cols-2 gap-6 w-full my-2'>
+							{config.projects.map((project) => (
 								<Card
-									key={index}
-									className='p-4 flex flex-col gap-4 transition-colors duration-200 bg-transparent hover:border-primary'
+									key={project.title}
+									className='p-6 flex flex-col gap-4 transition-colors duration-200 bg-transparent hover:border-primary'
 								>
 									<div className='flex flex-col gap-2'>
-										<h3 className='text-lg font-semibold'>
-											<Link
-												href={project.githubUrl}
-												className='hover:text-blue-500 transition-colors'
-											>
-												{project.title}
-											</Link>
-										</h3>
+										<Link
+											className='text-lg font-semibold flex items-center gap-1'
+											href={project.githubUrl}
+										>
+											<Globe className='size-5' />
+											{project.title}
+										</Link>
 										<p className='text-sm text-muted-foreground'>
 											{project.description}
 										</p>
 									</div>
 									<div className='flex flex-wrap gap-2'>
-										{project.technologies.map(
-											(tech, techIndex) => (
-												<span
-													key={techIndex}
-													className='px-2 py-1 text-xs sm:text-sm rounded-full bg-muted/90 hover:bg-muted/50 transition-colors'
-												>
-													{tech}
-												</span>
-											)
-										)}
+										{project.technologies.map((tech) => (
+											<span
+												key={tech}
+												className='px-2 py-1 text-xs sm:text-sm rounded-full bg-muted/90 hover:bg-muted/50 transition-colors'
+											>
+												{tech}
+											</span>
+										))}
 									</div>
-									<div className='flex flex-wrap gap-3 mt-auto pt-4'>
+									<div className='flex flex-wrap justify-between mt-auto pt-2'>
 										<Button
 											size='sm'
 											variant='outline'

@@ -4,6 +4,9 @@ import {
 	TerminalUICommand,
 	TerminalUIWindow,
 } from '@/components/custom/terminal-ui'
+import { Send } from 'lucide-react'
+import { config } from '@/config/config'
+import { DynamicIcon, type IconName } from 'lucide-react/dynamic'
 
 const ContactSection = () => {
 	return (
@@ -16,44 +19,52 @@ const ContactSection = () => {
 				className='max-w-6xl not-lg:max-w-[90dvw]'
 			>
 				<TerminalUICommand
-					command='ping socials'
+					command='ping swaroop.dev/socials'
 					output={
-						<div className='flex flex-col items-baseline'>
-							<Link
-								href='https://www.linkedin.com/in/swaroopthota/'
-								target='_blank'
-							>
-								linkedin.com/in/SwaroopThota
-							</Link>
-							<Link
-								href='https://github.com/swaroopthota'
-								target='_blank'
-							>
-								github.com/SwaroopThota
-							</Link>
+						<div className='flex flex-col items-baseline min-w-120'>
+							{config.socialMediaLinks.map((social) => (
+								<Link
+									href={social.link}
+									key={social.name}
+								>
+									<span className='flex gap-3 items-center mb-2'>
+										<DynamicIcon
+											name={social.icon as IconName}
+											className='size-5'
+										/>{' '}
+										{social.name}: {social.link}
+									</span>
+								</Link>
+							))}
 						</div>
 					}
 				/>
 				<TerminalUICommand
-					command={
-						<span>
+					command={<span>message \</span>}
+					output={
+						<div className='min-w-100 flex flex-col items-baseline'>
 							<span>
-								message --to{' '}
+								--to={' '}
 								<Link href='mailto:swaroopthota2001@gmail.com'>
 									swaroopthota2001@gmail.com
 								</Link>{' '}
 								\
 							</span>
-							<p>--name= ______________ \</p>
-							<p>--email= ______________ \</p>
-							<p>--message= ______________</p>
+							<span>--name= ______________ \</span>
+							<span>--email= ______________ \</span>
+							<span>--message= _______________</span>
+							<span> __________________________</span>
+							<span> __________________________</span>
+							<span> __________________________</span>
 							<Button
 								variant='plain'
-								className='hover:text-primary p-0'
+								className='text-primary p-0'
 							>
-								[ Send ]
+								<span className='hover:underline underline-offset-4 flex gap-1'>
+									[<Send /> Send ]
+								</span>
 							</Button>
-						</span>
+						</div>
 					}
 				/>
 			</TerminalUIWindow>

@@ -20,7 +20,7 @@ const ExperienceSection = () => {
 						<div className='flex flex-col gap-4'>
 							{config.experienceData.map((exp, index) => (
 								<div
-									className='flex flex-col gap-2'
+									className='flex flex-col gap-2 min-w-150'
 									key={index}
 								>
 									<div className='flex flex-row justify-between my-2'>

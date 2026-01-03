@@ -17,19 +17,14 @@ type TerminalUICommandProps = {
 const TerminalUICommand: FC<TerminalUICommandProps> = ({ command, output }) => {
 	return (
 		<div className='flex flex-col gap-2 text-sm max-w-full overflow-x-auto'>
-			<span className=''>
+			<span className='text-nowrap'>
 				<span className='text-primary'>
 					<ChevronRight className='size-4 inline' />
 					<span className='not-lg:hidden'>swaroop@dev:~</span>${' '}
 				</span>
 				{command}
 			</span>
-			{output && (
-				<>
-					<span>{output}</span>
-					<span></span>
-				</>
-			)}
+			{output && <div className='mb-2'>{output}</div>}
 		</div>
 	)
 }

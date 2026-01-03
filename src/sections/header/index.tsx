@@ -3,27 +3,13 @@ import {
 	NavigationMenuItem,
 	NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { Github, Linkedin, Terminal, Twitter } from 'lucide-react'
+import { Terminal } from 'lucide-react'
+import { DynamicIcon, type IconName } from 'lucide-react/dynamic'
 // import { ModeToggle } from '../../components/theme/mode-toggle'
 import Link from '../../components/custom/Link'
 import { config } from '@/config/config'
 
 const Header = () => {
-	const mediaItems = [
-		{
-			icon: <Github className='size-6' />,
-			href: config.socialMediaLinks.github,
-		},
-		{
-			icon: <Linkedin className='size-6' />,
-			href: config.socialMediaLinks.linkedin,
-		},
-		{
-			icon: <Twitter className='size-6' />,
-			href: config.socialMediaLinks.twitter,
-		},
-	]
-
 	return (
 		<header className='flex m-3 p-5 justify-between items-center sticky z-50 top-5 rounded-full bg-transparent backdrop-blur-xl backdrop-opacity-90 border shadow-2xl'>
 			<Link
@@ -43,14 +29,18 @@ const Header = () => {
 			</NavigationMenu>
 			<NavigationMenu>
 				<NavigationMenuList className='gap-3 text-base font-light items-baseline '>
-					{mediaItems.map((item, index) => (
-						<NavigationMenuItem key={index}>
+					{config.socialMediaLinks.map((item) => (
+						<NavigationMenuItem key={item.name}>
 							<Link
-								href={item.href}
+								href={item.link}
 								target='_blank'
 								rel='noopener noreferrer'
+								title={item.name}
 							>
-								{item.icon}
+								<DynamicIcon
+									name={item.icon as IconName}
+									className='size-6'
+								/>
 							</Link>
 						</NavigationMenuItem>
 					))}

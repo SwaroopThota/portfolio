@@ -24,16 +24,10 @@ export const config = {
 			duration: 'Jan 2025 - Present',
 			points: [
 				{
-					label: 'Technologies',
-					details:
-						'ASP.NET, .NET Core, C#, React, Node.js, SQL server, PostgreSQL',
-				},
-				{
 					label: 'Product Development - Upgrade Factory',
 					details: [
-						'Built and deployed a Python program to AWS that leverages LLM models to analyze code commits across client projects, generates reports, and emails results to product owners.',
-						'Developed tools using Python for the upgrade process.',
-						'Worked on the implementation of commit features in our Upgrade Tool for committing configurable assets, which reduced the asset migration process by 80%.',
+						'Designed and implemented a feature in Upgrade Tool for committing configurable assets and worked on improving the tool performance, which reduced the asset migration process by 80% and eventually reducing the asset migration process from days to hours.',
+						'Built and deployed a python program to AWS, which leverages LLM models to analyze code commits across client projects, generates a report, and emails them to product owners.',
 					],
 				},
 			],
@@ -44,11 +38,6 @@ export const config = {
 			duration: 'Aug 2023 - Mar 2025',
 			points: [
 				{
-					label: 'Technologies',
-					details:
-						'ASP.NET, .NET Core, C#, React, Node.js, SQL server, PostgreSQL',
-				},
-				{
 					label: 'Product Development - Platform Team',
 					details: [
 						'Contributed to serverless batch processing using the AWS infrastructure (Event bridge, Step functions, and Lambdas), which improved batch performance by 20% and substantially reduced batch failures.',
@@ -58,15 +47,66 @@ export const config = {
 				{
 					label: "Sammon's Financial Group - Client support team",
 					details: [
-						'Resolved production-level issues and bugs. Optimized the encrypted entity retrieval process, reduced the retrieval time by 60%.',
+						'Interacted with Client, resolved production-level issues and bugs. Designed and implemented a new encrypted entity retrieval process, which reduced the retrieval time by 60%.',
 					],
 				},
 			],
 		},
 	],
-	socialMediaLinks: {
-		github: 'https://github.com/SwaroopThota',
-		linkedin: 'https://www.linkedin.com/in/SwaroopThota/',
-		twitter: 'https://X.com/SwarropThota',
-	},
+	socialMediaLinks: [
+		{
+			name: 'GitHub',
+			link: 'https://github.com/SwaroopThota',
+			icon: 'github',
+		},
+		{
+			name: 'LinkedIn',
+			link: 'https://www.linkedin.com/in/SwaroopThota',
+			icon: 'linkedin',
+		},
+		{
+			name: 'X (Twitter)',
+			link: 'https://X.com/SwaroopThota',
+			icon: 'twitter',
+		},
+		{
+			name: 'Email',
+			link: 'mailto:swaroopthota2001@gmail.com',
+			icon: 'mail',
+		},
+	],
+	projects: [
+		{
+			title: 'ChatsApp',
+			description:
+				'Chatsapp is a real-time web-based chat application enabling instant messaging between users.',
+			technologies: ['React', 'Firebase', 'MUI'],
+			githubUrl: 'https://github.com/SwaroopThota/chatsapp',
+			liveUrl: 'https://chats4pp.web.app/',
+		},
+		{
+			title: 'Task Management System',
+			description:
+				'A Task Management System built using MERN stack with user authentication and user roles. Users can log in, assign tasks to team members, and change the task status assigned to them.',
+			technologies: ['React', 'Express', 'MongoDB', 'JWT', 'MUI'],
+			githubUrl: 'https://github.com/swaroopthota/Task-Managment-System',
+		},
+		{
+			title: 'Spotify Clone',
+			description:
+				'A Spotify clone built using React and Spotify API. Users can log in with their spotify accounts, create, manage playlists, listen to music tracks and much more.',
+			technologies: ['React', 'Bootstrap', 'Spotify API'],
+			githubUrl: 'https://github.com/SwaroopThota/spotify-clone',
+			liveUrl: 'https://spotify-clone-369.netlify.app/',
+		},
+		{
+			title: 'Monthly Expense Tracker',
+			description:
+				'A web application to track monthly expenses, built using React and Firebase. Users can login with their Google accounts and add, edit, and delete expenses, and view expense reports.',
+			technologies: ['React', 'Firebase', 'MUI'],
+			githubUrl:
+				'https://github.com/SwaroopThota/monthly-expense-tracker',
+			liveUrl: 'https://monthly-xpense-tracker.netlify.app/',
+		},
+	],
 }
