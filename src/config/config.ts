@@ -11,7 +11,7 @@ export const config = {
 		"Hello, I'm Swaroop. I am a passionate developer with experience in building beautiful web applications and robust backend systems. I really enjoy building things from scratch and love problem-solving. I am always enthusiastic about learning new things and collaborate with experienced devs to create something significant and impactful.",
 	skills: {
 		'Front-end': ['React.js', 'Next.js', 'Redux Toolkit', 'Tailwind CSS'],
-		'Back-end': ['Node.js', 'ASP.Net Core'],
+		'Back-end': ['Node.js', 'Express', '.Net 8', 'ASP.Net'],
 		Languages: ['JavaScript/TypeScript', 'C#', 'Java', 'Python'],
 		Databases: ['Postgres', 'SQL Server', 'MongoDB'],
 		DevOps: ['Docker', 'Github Actions', 'AWS', 'Jenkins'],
@@ -79,7 +79,7 @@ export const config = {
 		{
 			title: 'ChatsApp',
 			description:
-				'Chatsapp is a real-time web-based chat application enabling instant messaging between users.',
+				'ChatsApp is a real-time web-based chat application enabling instant messaging between users.',
 			technologies: ['React', 'Firebase', 'MUI'],
 			githubUrl: 'https://github.com/SwaroopThota/chatsapp',
 			liveUrl: 'https://chats4pp.web.app/',

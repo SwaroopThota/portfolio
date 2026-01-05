@@ -50,18 +50,27 @@ const TerminalUIWindow: FC<TerminalUIWindowProps> = ({
 			<CardHeader>
 				<div className='flex gap-2 items-center'>
 					<div className='flex gap-1 me-2'>
-						<div className='size-4 bg-red-500 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'>
+						<a
+							href={`#${path.replace('/', '')}`}
+							className='size-4 bg-red-500 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'
+						>
 							<X strokeWidth={3} />
-						</div>
-						<div className='size-4 bg-yellow-300 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'>
+						</a>
+						<a
+							href={`#${path.replace('/', '')}`}
+							className='size-4 bg-yellow-300 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'
+						>
 							<Minus strokeWidth={3} />
-						</div>
-						<div className='size-4 bg-green-500 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'>
+						</a>
+						<a
+							href={`#${path.replace('/', '')}`}
+							className='size-4 bg-green-500 rounded-full flex justify-center items-center text-transparent hover:text-black transition-all duration-400 cursor-pointer text-sm'
+						>
 							<ChevronsUpDown
 								strokeWidth={3}
 								className='rotate-45'
 							/>
-						</div>
+						</a>
 					</div>
 					<SquareTerminal />
 					<p className='text-lg'>
@@ -72,6 +81,12 @@ const TerminalUIWindow: FC<TerminalUIWindowProps> = ({
 			</CardHeader>
 			<CardContent className='flex flex-col gap-3'>
 				{children}
+
+				<TerminalUICommand
+					command={
+						<span className='inline-block w-[.3rem] h-[1.15rem] bg-primary animate-caret-blink relative top-1'></span>
+					}
+				/>
 			</CardContent>
 		</Card>
 	)

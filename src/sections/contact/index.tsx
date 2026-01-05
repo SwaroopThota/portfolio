@@ -7,8 +7,19 @@ import {
 import { Send } from 'lucide-react'
 import { config } from '@/config/config'
 import { DynamicIcon, type IconName } from 'lucide-react/dynamic'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
 const ContactSection = () => {
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault()
+		const formData = new FormData(event.currentTarget)
+		const name = formData.get('name')
+		const email = formData.get('email')
+		const message = formData.get('message')
+		console.log({ name, email, message })
+	}
+
 	return (
 		<section
 			className='flex flex-col items-center justify-center'
@@ -42,7 +53,10 @@ const ContactSection = () => {
 				<TerminalUICommand
 					command={<span>message \</span>}
 					output={
-						<div className='min-w-100 flex flex-col items-baseline'>
+						<form
+							onSubmit={handleSubmit}
+							className='flex flex-col gap-2'
+						>
 							<span>
 								--to={' '}
 								<Link href='mailto:swaroopthota2001@gmail.com'>
@@ -50,21 +64,44 @@ const ContactSection = () => {
 								</Link>{' '}
 								\
 							</span>
-							<span>--name= ______________ \</span>
-							<span>--email= ______________ \</span>
-							<span>--message= _______________</span>
-							<span> __________________________</span>
-							<span> __________________________</span>
-							<span> __________________________</span>
-							<Button
-								variant='plain'
-								className='text-primary p-0'
-							>
-								<span className='hover:underline underline-offset-4 flex gap-1'>
-									[<Send /> Send ]
-								</span>
-							</Button>
-						</div>
+							<div className='flex items-center gap-2'>
+								<span className='text-nowrap'>--name=</span>
+								<Input
+									type='text'
+									className='bg-transparent! border-muted ring-transparent!'
+									required
+								/>
+								<span>\</span>
+							</div>
+							<div className='flex items-center gap-1'>
+								<span className='text-nowrap'>--email=</span>
+								<Input
+									type='email'
+									className='bg-transparent! border-muted ring-transparent!'
+									required
+								/>
+								<span>\</span>
+							</div>
+							<div className='flex gap-1'>
+								<span className='text-nowrap'>--message=</span>
+								<Textarea
+									className='border-muted ring-transparent! bg-transparent!'
+									required
+									minLength={10}
+								/>
+							</div>
+							<div>
+								<Button
+									variant='plain'
+									className='text-primary p-0'
+									type='submit'
+								>
+									<span className='hover:underline underline-offset-4 flex gap-1'>
+										[<Send /> Send ]
+									</span>
+								</Button>
+							</div>
+						</form>
 					}
 				/>
 			</TerminalUIWindow>

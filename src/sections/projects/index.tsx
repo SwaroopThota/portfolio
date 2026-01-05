@@ -31,6 +31,7 @@ const ProjectsSection = () => {
 										<Link
 											className='text-lg font-semibold flex items-center gap-1'
 											href={project.githubUrl}
+											target='_blank'
 										>
 											<Globe className='size-5' />
 											{project.title}
@@ -58,6 +59,7 @@ const ProjectsSection = () => {
 											<Link
 												href={project.githubUrl}
 												className='flex items-center'
+												target='_blank'
 											>
 												<Github className='size-4' />
 												<span className='hidden sm:inline'>
@@ -77,6 +79,7 @@ const ProjectsSection = () => {
 												<Link
 													href={project.liveUrl}
 													className='flex items-center hover:text-primary-foreground'
+													target='_blank'
 												>
 													<ExternalLink className='size-4' />
 													<span className='hidden sm:inline'>

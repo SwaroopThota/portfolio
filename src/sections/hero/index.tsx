@@ -49,11 +49,6 @@ const HeroSection = () => {
 						</div>
 					}
 				/>
-				<TerminalUICommand
-					command={
-						<span className='inline-block w-[.3rem] h-[1.15rem] bg-primary animate-caret-blink relative top-1'></span>
-					}
-				/>
 			</TerminalUIWindow>
 		</section>
 	)
