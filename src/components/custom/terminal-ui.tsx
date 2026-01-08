@@ -5,27 +5,37 @@ import {
 	SquareTerminal,
 	X,
 } from 'lucide-react'
-import type { FC, ReactNode } from 'react'
+import { Activity, type FC, type ReactNode } from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
 type TerminalUICommandProps = {
-	command: ReactNode
+	command?: ReactNode
 	output?: ReactNode
+	hide?: boolean
 }
 
-const TerminalUICommand: FC<TerminalUICommandProps> = ({ command, output }) => {
+const TerminalUICommand: FC<TerminalUICommandProps> = ({
+	command,
+	output,
+	hide = false,
+}) => {
 	return (
-		<div className='flex flex-col gap-2 text-sm max-w-full overflow-x-auto'>
-			<span className='text-nowrap'>
-				<span className='text-primary'>
-					<ChevronRight className='size-4 inline' />
-					<span className='not-lg:hidden'>swaroop@dev:~</span>${' '}
-				</span>
-				{command}
-			</span>
-			{output && <div className='mb-2'>{output}</div>}
-		</div>
+		<Activity mode={hide ? 'hidden' : 'visible'}>
+			<div className='flex flex-col gap-2 text-sm max-w-full overflow-x-auto'>
+				<Activity mode={command ? 'visible' : 'hidden'}>
+					<span className='text-nowrap'>
+						<span className='text-primary'>
+							<ChevronRight className='size-4 inline' />
+							<span className='not-lg:hidden'>swaroop@dev:~</span>
+							${' '}
+						</span>
+						{command}
+					</span>
+				</Activity>
+				{output && <div className='mb-2'>{output}</div>}
+			</div>
+		</Activity>
 	)
 }
 
@@ -33,12 +43,14 @@ type TerminalUIWindowProps = {
 	children?: ReactNode
 	path?: string
 	className?: string
+	displayEmptyCommand?: boolean
 }
 
 const TerminalUIWindow: FC<TerminalUIWindowProps> = ({
 	children,
 	path = '',
 	className,
+	displayEmptyCommand = false,
 }) => {
 	return (
 		<Card
@@ -86,6 +98,7 @@ const TerminalUIWindow: FC<TerminalUIWindowProps> = ({
 					command={
 						<span className='inline-block w-[.3rem] h-[1.15rem] bg-primary animate-caret-blink relative top-1'></span>
 					}
+					hide={!displayEmptyCommand}
 				/>
 			</CardContent>
 		</Card>

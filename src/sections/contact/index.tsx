@@ -9,15 +9,20 @@ import { config } from '@/config/config'
 import { DynamicIcon, type IconName } from 'lucide-react/dynamic'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { useState } from 'react'
 
 const ContactSection = () => {
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		const formData = new FormData(event.currentTarget)
+	const [displayConfirmation, setDisplayConfirmation] = useState(false)
+	const handleSubmit = async (formData: FormData) => {
 		const name = formData.get('name')
 		const email = formData.get('email')
 		const message = formData.get('message')
+		await new Promise((resolve) => setTimeout(resolve, 5000))
 		console.log({ name, email, message })
+		setDisplayConfirmation(true)
+		setTimeout(() => {
+			setDisplayConfirmation(false)
+		}, 5000)
 	}
 
 	return (
@@ -54,7 +59,7 @@ const ContactSection = () => {
 					command={<span>message \</span>}
 					output={
 						<form
-							onSubmit={handleSubmit}
+							action={handleSubmit}
 							className='flex flex-col gap-2'
 						>
 							<span>
@@ -103,6 +108,10 @@ const ContactSection = () => {
 							</div>
 						</form>
 					}
+				/>
+				<TerminalUICommand
+					hide={!displayConfirmation}
+					output={<p>🎉 Message sent successfully! Thank you for your message.</p>}
 				/>
 			</TerminalUIWindow>
 		</section>

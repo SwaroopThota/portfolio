@@ -12,7 +12,10 @@ const HeroSection = () => {
 			className='min-h-96 flex items-center justify-center'
 			id='hero'
 		>
-			<TerminalUIWindow className='max-w-[90dvw] w-6xl mt-0'>
+			<TerminalUIWindow
+				className='max-w-[90dvw] w-6xl mt-0'
+				displayEmptyCommand
+			>
 				<TerminalUICommand
 					command='whoami'
 					output={
